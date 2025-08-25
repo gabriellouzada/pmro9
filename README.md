@@ -1,70 +1,177 @@
-# Getting Started with Create React App
+# Dashboard Relatório Educacional 📊
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Dashboard interativo para análise de desempenho educacional com **Índice de Excelência Acadêmica (IEA)** - Parceria Público-Privada para preparação de estudantes do 9º ano.
 
-## Available Scripts
+![Dashboard Preview](./docs/dashboard-preview.png)
 
-In the project directory, you can run:
+## ✨ Funcionalidades
 
-### `npm start`
+### 📈 Visualizações Interativas
+- **Cards de estatísticas** com indicadores principais
+- **Gráfico de pizza** para distribuição por classificação
+- **Gráfico de barras** para pesos das dimensões
+- **Radar chart** comparando performance dos top 3 estudantes
+- **Filtros dinâmicos** por nome, escola e ranking
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### 🏆 Sistema de Ranking
+- **Cards expansíveis** para cada estudante
+- **Busca em tempo real** por nome ou escola
+- **Filtro por escola** específica
+- **Toggle para Top 10** apenas
+- **Ranking visual** com cores diferenciadas
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### 📊 Analytics Avançados
+- **4 Dimensões do IEA**: Engajamento Digital (30%), Progressão Curricular (25%), Performance Avaliativa (25%), Persistência Acadêmica (20%)
+- **4 Áreas do Conhecimento**: Português, Matemática, Natureza, Humanas
+- **Critérios de elegibilidade** para atividades extras
+- **Estatísticas dinâmicas** calculadas automaticamente
 
-### `npm test`
+## 🚀 Como Usar
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### 1. Gerar Dados com ETL
+Execute o script Python ETL para gerar o arquivo Excel:
+```bash
+python etl_relatorio_educacional.py
+```
 
-### `npm run build`
+### 2. Carregar no Dashboard
+1. Abra o dashboard
+2. Clique em "Carregar Excel"
+3. Selecione o arquivo `Relatorio_Desempenho_Educacional.xlsx`
+4. Aguarde o processamento
+5. Explore os dados nas abas: Ranking, Analytics e Metodologia
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## 🛠️ Desenvolvimento Local
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Pré-requisitos
+- Node.js 18+
+- npm ou yarn
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Instalação
+```bash
+# Clone o repositório
+git clone https://github.com/SEU_USUARIO/dashboard-relatorio-educacional.git
+cd dashboard-relatorio-educacional
 
-### `npm run eject`
+# Instale as dependências
+npm install
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+# Inicie o servidor de desenvolvimento
+npm start
+```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+A aplicação estará disponível em `http://localhost:3000`
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### Build para Produção
+```bash
+npm run build
+```
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## 📦 Deploy no GitHub Pages
 
-## Learn More
+### Configuração Automática
+O projeto inclui GitHub Actions para deploy automático:
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+1. **Fork ou clone** este repositório
+2. **Configure o GitHub Pages**:
+   - Vá em Settings > Pages
+   - Source: GitHub Actions
+3. **Atualize o `package.json`**:
+   ```json
+   "homepage": "https://SEU_USUARIO.github.io/NOME_DO_REPOSITORIO"
+   ```
+4. **Commit e push** para a branch `main`
+5. **Aguarde o deploy** automático via GitHub Actions
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### Deploy Manual
+```bash
+# Instalar gh-pages (se não estiver no package.json)
+npm install --save-dev gh-pages
 
-### Code Splitting
+# Deploy manual
+npm run deploy
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## 🏗️ Arquitetura
 
-### Analyzing the Bundle Size
+### Tecnologias Utilizadas
+- **React 18** - Framework principal
+- **Tailwind CSS** - Estilização e design system
+- **Recharts** - Gráficos e visualizações
+- **SheetJS (xlsx)** - Leitura de arquivos Excel
+- **Lucide React** - Ícones modernos
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+### Estrutura do Projeto
+```
+src/
+├── components/
+│   └── DashboardRelatorioEducacional.js
+├── App.js
+├── index.js
+├── index.css
+└── App.css
 
-### Making a Progressive Web App
+public/
+├── index.html
+├── manifest.json
+└── favicon.ico
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+.github/
+└── workflows/
+    └── deploy.yml
+```
 
-### Advanced Configuration
+### Componentes Principais
+- **DashboardRelatorioEducacional**: Componente principal
+- **StatCard**: Cards de estatísticas
+- **StudentCard**: Cards expansíveis de estudantes
+- **Upload Handler**: Processamento de arquivos Excel
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+## 📊 Metodologia IEA
 
-### Deployment
+O **Índice de Excelência Acadêmica** é calculado com base em 4 dimensões:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+### 🎯 Dimensões e Pesos
+1. **Engajamento Digital (30%)**
+   - Frequência de acesso
+   - Diversidade de interações
+   - Consistência temporal
 
-### `npm run build` fails to minify
+2. **Progressão Curricular (25%)**
+   - Taxa de conclusão geral
+   - Diversidade curricular por área
+   - Equilíbrio entre áreas
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+3. **Performance Avaliativa (25%)**
+   - Tentativas de questionários
+   - Atualizações de notas
+
+4. **Persistência Acadêmica (20%)**
+   - Taxa de conclusão de demonstrações
+   - Total de conclusões
+   - Atividades de retomada
+
+### 🎓 Critérios de Elegibilidade
+- Percentil 90+ no IEA
+- Mínimo 30 eventos registrados
+- Taxa de conclusão ≥ 60%
+- Mínimo 15 dias de atividade
+
+## 🌟 Áreas do Conhecimento
+
+- **Português**: 20 módulos (Estrutura da palavra, Classes gramaticais, Sintaxe)
+- **Matemática**: 22 módulos (Equações, Funções, Porcentagem e Juros)
+- **Natureza**: 20 módulos (Biologia: Sistemática, Ecologia, Impactos Ambientais)
+- **Humanas**: 20 módulos (Geografia: EUA, Europa, Rússia)
+
+## 🤝 Contribuição
+
+1. Fork o projeto
+2. Crie uma branch para sua feature (`git checkout -b feature/AmazingFeature`)
+3. Commit suas mudanças (`git commit -m 'Add some AmazingFeature'`)
+4. Push para a branch (`git push origin feature/AmazingFeature`)
+5. Abra um Pull Request
+
+## 📝 Licença
+
+Este projeto está sob a licença MIT

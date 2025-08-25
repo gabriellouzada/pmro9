@@ -1,6 +1,6 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "Dashboard IEA",
+  "name": "Dashboard Relatório Educacional - Índice de Excelência Acadêmica",
   "icons": [
     {
       "src": "favicon.ico",
@@ -20,6 +20,8 @@
   ],
   "start_url": ".",
   "display": "standalone",
-  "theme_color": "#000000",
-  "background_color": "#ffffff"
+  "theme_color": "#3B82F6",
+  "background_color": "#ffffff",
+  "description": "Dashboard interativo para análise de desempenho educacional com Índice de Excelência Acadêmica (IEA)",
+  "categories": ["education", "analytics", "dashboard"]
 }
