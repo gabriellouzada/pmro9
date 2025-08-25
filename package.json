@@ -2,7 +2,7 @@
   "name": "dashboard-relatorio-educacional",
   "version": "1.0.0",
   "description": "Dashboard interativo para análise de desempenho educacional - Parceria Público-Privada",
-  "homepage": "https://gabriellouzada.github.io/dashboard-relatorio-educacional",
+  "homepage": "https://gabriellouzada.github.io/pmro9",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.17.0",
